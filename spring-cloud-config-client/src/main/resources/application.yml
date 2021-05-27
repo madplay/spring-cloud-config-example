@@ -1,0 +1,16 @@
+server:
+  port: 8089
+spring:
+  profiles:
+    active: dev
+  config:
+    import: "configserver:http://localhost:8088"
+  cloud:
+    config: # Ex) `http://localhost:8088/config/test`
+      name: config # config name
+      profile: test # config profile
+management:
+  endpoints:
+    web:
+      exposure:
+        include: refresh
